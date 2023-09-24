@@ -43,7 +43,7 @@ def convert_video_to_images(video_path, output_folder):
 test_image_folder = 'frames_bad'
 
 # Конвертируем видео в картинки
-convert_video_to_images('144p/666_144.mp4', test_image_folder)
+convert_video_to_images('0_144.mp4', test_image_folder)
 
 # Загрузка и предобработка тестовых изображений
 test_images = load_test_images(test_image_folder)
@@ -73,7 +73,7 @@ images = [img for img in os.listdir(output_folder) if img.endswith(".jpg")]
 frame = cv2.imread(os.path.join(output_folder, images[0]))
 height, width, layers = frame.shape
 
-video = cv2.VideoWriter('output_video.avi', cv2.VideoWriter_fourcc(*'DIVX'), 30, (width,height))
+video = cv2.VideoWriter('output_video.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (width,height))
 
 for image in images:
     video.write(cv2.imread(os.path.join(output_folder, image)))
